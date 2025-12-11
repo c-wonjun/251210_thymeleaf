@@ -14,6 +14,8 @@ import java.util.List;
 @Getter @Setter @NoArgsConstructor
 @ToString
 public class Mentor extends BaseEntity {
+    // @Column(nullable = false, length = 255) // DB Constraints
+    // -> SQL Exception으로 인식이 됨. 실패를 인식하는 주체가 DB. (DDL)
     private String name;
     private String specialty;
     //    @Column(unique = true)
@@ -23,9 +25,9 @@ public class Mentor extends BaseEntity {
     // -> 이 사람이 작성한 글, 댓글, 여러 통계 지표들을 (개인정보 삭제에 따른) 손실 없이 관리할 수 있다
 
     // setter로 하나씩 넣는게 귀찮아서(?) 넣는 생성자
-    public Mentor(String name, String speciality, String email) {
+    public Mentor(String name, String specialty, String email) {
         this.name = name;
-        this.specialty = speciality;
+        this.specialty = specialty;
         this.email = email;
     }
 
